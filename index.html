@@ -9,7 +9,7 @@
 
   <body>
     <div>
-      <h1>This is the title of the page</h1>
+      <h1 onclick="makeItClickable()">This is the title of the page</h1>
       <h2>This is the subtitle of the page</h2>
     </div>
 
@@ -30,7 +30,7 @@
 
       <a href="https://epicode.it">This link goes to Epicode</a>
 
-      <div>
+      <div id="paraContainer">
         <p>This text is just for the exercise</p>
       </div>
 
@@ -50,6 +50,7 @@
         questions!
       </h2>
     </div>
+    <footer onclick="changeFooterText(event)">There was no text here</footer>
     <script>
       /* EXERCISE 1
        Write a function for changing the title of the document in something else.
@@ -112,7 +113,10 @@
       */
 
       const addParagraph = function (content) {
-        //
+        const pContainer = document.getElementById("paraContainer");
+        const newP = document.createElement("p");
+        newP.innerText = content;
+        pContainer.appendChild(newP);
       };
 
       /* EXERCISE 7
@@ -120,7 +124,8 @@
       */
 
       const firstUlDisappear = function () {
-        //
+        const firstOne = document.getElementById("firstList");
+        firstOne.style.visibility = "hidden";
       };
 
       /* EXERCISE 8
@@ -128,23 +133,56 @@
       */
 
       const paintItGreen = function () {
-        //
+        const theLists = document.querySelectorAll("ul");
+        for (let i = 0; i < theLists.length; i++) {
+          theLists[i].style.backgroundColor = "green";
+        }
       };
 
       /* EXERCISE 9
        Make the heading of the page change color every time the user clicks on it.
       */
 
-      const makeItClickable = function () {
-        //
+      const makeItClickable = function (event) {
+        const colors = [
+          "white",
+          "red",
+          "purple",
+          "blue",
+          "green",
+          "yellow",
+          "orange",
+          "black",
+        ];
+        const h1 = document.querySelector("h1");
+        const text_color = h1.style.color;
+        let i = colors.indexOf(text_color);
+        if (i >= colors.length - 1) {
+          i = 0;
+        }
+        h1.style.color = colors[i + 1];
       };
 
       /* EXERCISE 10
        Change the footer text with something else when the user clicks on it.
       */
+      //there is no footer text??? I could create some? Is that what you are asking?
 
-      const changeFooterText = function () {
-        //
+      const changeFooterText = function (event) {
+        const foot = document.querySelector("footer");
+        const textChange = [
+          "Hello",
+          "Hello",
+          "and",
+          "Goodbye",
+          "See Ya next time!",
+        ];
+        const text = foot.innerText;
+        let i = textChange.indexOf(text);
+        if (i >= textChange.length + 1) {
+          i = 0;
+        }
+        foot.innerText = textChange[i + 1];
       };
 
       /* EXERCISE 11
