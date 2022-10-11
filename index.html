@@ -45,12 +45,12 @@
 
     <div>
       <p>And this text is just for the exercise too!</p>
-      <h2 style="color: red">
+      <h2 style="color: red" id="lastOne" onclick="changeFooterText(event)">
         Save this page on your computer and open it with VSCode to get the
         questions!
       </h2>
     </div>
-    <footer onclick="changeFooterText(event)">There was no text here</footer>
+    <!--<footer onclick="changeFooterText(event)">There was no text here</footer>-->
     <script>
       /* EXERCISE 1
        Write a function for changing the title of the document in something else.
@@ -165,10 +165,10 @@
       /* EXERCISE 10
        Change the footer text with something else when the user clicks on it.
       */
-      //there is no footer text??? I could create some? Is that what you are asking?
+      //there is no footer text??? I could create some? Is that what you are asking?...whoops, just read discord
 
       const changeFooterText = function (event) {
-        const foot = document.querySelector("footer");
+        const foot = document.getElementById("lastOne");
         const textChange = ["Hello", "and", "Goodbye", "See Ya next time!"];
         const text = foot.innerText;
         let i = textChange.indexOf(text);
@@ -185,7 +185,7 @@
       const inputField = document.getElementById("input-field");
       // ...
 
-      /* EXERCISE 11
+      /* EXERCISE 12
        Attach an event listener to the input field in the page that changes the text of the page's subtitle
       */
 
